@@ -4,6 +4,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   build:
@@ -30,5 +31,5 @@ jobs:
         status: ${{ job.status }}
         fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
       env:
-        SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+        SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
       
