@@ -22,3 +22,13 @@ jobs:
         npm install
         npm run build --if-present
         npm run test --if-present
+
+    - name: slack alarm
+      if : ${{ success() }}
+      uses: 8398a7/action-slack@v3
+      with: 
+        status: ${{ job.status }}
+        fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+      env:
+        SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+      
